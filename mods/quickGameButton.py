@@ -161,7 +161,7 @@ class SelectGameWindow(AddGameWindow):
         self._column = bs.columnWidget(parent=self._scrollWidget)
         gameTypes = [gt for gt in bsUtils.getGameTypes() if gt.supportsSessionType(self._editSession._sessionType)]
         # sort in this language
-        gameTypes.sort(key=lambda g: g.getDisplayString())
+        gameTypes.sort(key=lambda g: g.getDisplayString().evaluate())
 
         for i, gameType in enumerate(gameTypes):
             t = bs.textWidget(parent=self._column, position=(0, 0), size=(self._width-88, 24), text=gameType.getDisplayString(),
